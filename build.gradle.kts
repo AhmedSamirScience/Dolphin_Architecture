@@ -36,4 +36,15 @@ plugins {
      * plugin to enable Kotlin support in your project.
      */
     id(ProjectPlugins.KOTLIN_ANDROID) version ProjectPlugins.KOTLIN_ANDROID_PLUGIN_VERSION_NUMBER apply false
+
+    /**
+     * plugin to enable nav graph
+     */
+    id(ProjectPlugins.SAFE_ARGS_APP_MODULE) version ProjectPlugins.SAFE_ARGS_APP_MODULE_VERSION_NUMBER apply false
+
+    /**
+     * plugin to enable dagger hilt
+     */
+    id(ProjectPlugins.DAGGER_HILT) version ProjectPlugins.DAGGER_HILT_VERSION_NUMBER apply false
+
 }

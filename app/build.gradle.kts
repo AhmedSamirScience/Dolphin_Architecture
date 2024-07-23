@@ -1,4 +1,13 @@
+import dependencies.coroutines
+import dependencies.daggerHilt
 import dependencies.defaultLibraries
+import dependencies.designMargins
+import dependencies.gifDrawable
+import dependencies.lifecycleRuntimeKtx
+import dependencies.navGraph
+import dependencies.retrofit
+import dependencies.viewModel
+
 /**
  * ***build.gradle/build.gradle.kts (app module)***
  *
@@ -18,6 +27,16 @@ plugins {
 
     id(ProjectPlugins.ANDROID_APP) //plugin to build Android app (e.g. default app module) (AGP)
     id(ProjectPlugins.KOTLIN_ANDROID) //plugin to enable Kotlin support in your project.
+
+    id(ProjectPlugins.SAFE_ARGS_PROJECT_MODULE)
+
+    id(ProjectPlugins.KOTLIN_PARCELIZE)
+
+    //dagger hilt
+    id(ProjectPlugins.KOTLIN_ANDROID_PLUGIN)
+    id(ProjectPlugins.DAGGER_HILT_PLUGIN)
+    id(ProjectPlugins.KOTLIN_KAPT)
+
 }
 
 android {
@@ -243,9 +262,43 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    signingConfigs {
+        create("release") {
+            storeFile = file("D:/keys/test/ahmed.jks")
+            storePassword = "123456"
+            keyAlias = "key0"
+            keyPassword = "123456"
+        }
+    }
+    buildTypes {
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("release")
+
+            isShrinkResources = true
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+
+            buildConfigField("String", "BASE_URL", project.extra["baseUrlProd"].toString()) }
+        getByName("debug") {
+            signingConfig = signingConfigs.getByName("debug")
+            applicationIdSuffix = ".debug"
+
+            buildConfigField("String", "BASE_URL", project.extra["baseUrlTest"].toString())
+        }
+    }
+    buildFeatures {
+        /**
+         * buildFeatures {} Block
+         * this is for enabling or disabling certain features in the Android build system. such as buildConfig, dataBinding, viewBinding, etc.
+         */
+        buildConfig = true
+        dataBinding = true
+        viewBinding = true
+    }
 }
 
 dependencies {
+
     /**
      * dependencies {} Block
      *
@@ -256,4 +309,13 @@ dependencies {
      */
 
     defaultLibraries()
+    navGraph()
+    viewModel()
+    designMargins()
+    gifDrawable()
+    lifecycleRuntimeKtx()
+    daggerHilt()
+    coroutines()
+    retrofit()
+
 }
