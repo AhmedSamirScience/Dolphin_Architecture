@@ -2,7 +2,8 @@ package com.asacoding.dolphin_architecture.domain.mapper.reporting
 
 
 import com.asacoding.dolphin_architecture.data.remote.dto.reporting.ReportDtoRs
-import idhcorp.mokhtabar.chemist.domain.model.remote.reporting.DetailedReport
+import com.asacoding.dolphin_architecture.domain.model.remote.reporting.DetailedReport
+
 
 class DetailedReportRsMapper {
     fun buildFrom(reportDtoRs: ReportDtoRs): DetailedReport {

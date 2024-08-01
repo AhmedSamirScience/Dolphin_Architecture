@@ -2,7 +2,7 @@ package com.asacoding.dolphin_architecture.domain.mapper.cachCollection.inquiry
 
 
 import com.asacoding.dolphin_architecture.data.remote.dto.cash_collection.inquiry.InquiryDtoRs
-import idhcorp.mokhtabar.chemist.domain.model.remote.cashCollection.Inquiry
+import com.asacoding.dolphin_architecture.domain.model.remote.cashCollection.Inquiry
 
 
 class InquiryRsMapper {

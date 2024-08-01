@@ -2,7 +2,7 @@ package com.asacoding.dolphin_architecture.domain.mapper.cachCollection.inquiry
 
 
 import com.asacoding.dolphin_architecture.data.remote.dto.cash_collection.inquiry.PaymentDtoRs
-import idhcorp.mokhtabar.chemist.domain.model.remote.cashCollection.Payment
+import com.asacoding.dolphin_architecture.domain.model.remote.cashCollection.Payment
 
 
 class PaymentRsMapper {

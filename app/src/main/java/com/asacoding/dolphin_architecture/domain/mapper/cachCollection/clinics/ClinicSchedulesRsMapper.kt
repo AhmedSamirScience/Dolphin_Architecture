@@ -2,7 +2,8 @@ package com.asacoding.dolphin_architecture.domain.mapper.cachCollection.clinics
 
 
 import com.asacoding.dolphin_architecture.data.remote.dto.cash_collection.cashCollection.ClinicSchedulesDtoRs
-import idhcorp.mokhtabar.chemist.domain.model.remote.cashCollection.ClinicSchedules
+import com.asacoding.dolphin_architecture.domain.model.remote.cashCollection.ClinicSchedules
+
 
 class ClinicSchedulesRsMapper {
     fun buildFrom(clinicSchedulesDtoRs: ClinicSchedulesDtoRs): ClinicSchedules {
